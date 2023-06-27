@@ -1,0 +1,46 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Calculator"
+             x:Class="Calculator.App">
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme Mode="Dark"/>
+        
+        <Style Selector="#ButtonGrid > Button">
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+            <Setter Property="Margin" Value="1"></Setter>
+            <Setter Property="CornerRadius" Value="7"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter> 
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            
+        </Style>
+        <Style Selector="TextBlock.DisplayBlock">
+            <Setter Property="FontSize" Value="40"></Setter>
+            <Setter Property="TextAlignment" Value="Right"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="Margin" Value="4"></Setter>
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        </Style>
+        
+        <Style Selector="Button.OperationButton">
+            
+            <Setter Property="Background" Value="#222222"></Setter>
+        </Style>
+        <Style Selector="Button.OperationButton:pointerover/template/ContentPresenter">
+            <Setter Property="Background" Value="#555558"></Setter>
+        </Style>
+
+        <Style Selector="Button.SymbolButton">
+            
+            <Setter Property="Command" Value="{Binding SetInputSymbolCommand}"/>
+            <Setter Property="CommandParameter" Value="{Binding $self.Content}"/>
+
+        </Style>
+    </Application.Styles>
+</Application>
